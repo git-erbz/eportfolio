@@ -3,35 +3,44 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Eric Bermdez — Portfolio</title>
+  <title>Eric Bermudez — Portfolio</title>
   <meta name="description" content="Personal portfolio of Eric Bermudez: projects, experience, and contact." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg: #0b0c10;
-      --panel: #11131a;
-      --text: #e6e6e6;
+      --bg: #0e221a;
+      --panel: #414655;
+      --text: #ffffff;
       --muted: #a6a6a6;
-      --accent: #7c5cff;
+      --accent: #87db7c;
       --accent-2: #00e5a8;
-      --ring: color-mix(in hsl, var(--accent) 60%, white 40%);
-      --card: #151826;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --ring: color-mix(in hsl, var(--accent) 60%, rgb(6, 26, 11) 40%);
+      --card: #2c4e3b;
+      --shadow: 0px 8px 24px #030e0b;;
     }
     @media (prefers-color-scheme: light){
       :root{
-        --bg: #f8fafc;
+        --bg: #344658;
         --panel: #ffffff;
         --text: #0f172a;
-        --muted: #475569;
-        --accent: #6d28d9;
+        --muted: #2f3c4d;
+        --accent: #6a5888;
         --accent-2: #0ea5e9;
         --card: #ffffff;
         --shadow: 0 8px 24px rgba(2,8,23,.08);
       }
     }
+.profile-pic {
+  width: 350px;       /* Adjust size as needed */
+  height: auto;       /* Keeps the aspect ratio */
+  border-radius: 50%; /* Rounded corners, increase for more roundness */
+  object-fit: cover;  /* Keeps the image from stretching */
+   border: 8px solid #749e77; /* Optional border */
+}
+
+
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
@@ -135,20 +144,22 @@
   <main>
     <section class="hero" id="home">
       <div>
-        <h1>Hi, I'm <span style="color:var(--accent)">Eric Bermudez</span> — a <span style="color:var(--accent-2)">Your Role</span> who builds clean, delightful experiences.</h1>
-        <p>Short 1–2 line elevator pitch. Mention your focus (e.g., robotics, web dev, data viz), your impact, or what you’re seeking.</p>
+        <h1>Hi, I'm <span style="color:var(--accent)">Eric Bermudez</span>
+           — a <span style="color:var(--accent-2)">Mechanical Engineer</span> 
+           with an interest in exploring robotics and neurotech.</h1>
+        <p></p>
+        <p>With aspirations to break into the robotics field with an emphasis on neurotechnology sector, I am egar to learn and contribute to projects that make a meaningful impact. 
+        <p>Currently, I am building my skills through hands-on projects and self-directed learning. I am looking for opportunitites where I can grow, collaborate, and apply my curiosity and problem-solving mindset.  </p>
         <div class="cta">
           <a class="btn" href="#projects">View Projects</a>
           <a class="btn secondary" href="#contact">Contact Me</a>
           <a class="btn secondary" href="resume.pdf" target="_blank" rel="noopener">Download Resume</a>
         </div>
       </div>
-      <div class="portrait" aria-hidden>
+      <div>
         <!-- Simple placeholder avatar -->
-        <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="10">
-          <circle cx="128" cy="96" r="42" />
-          <path d="M44 228c14-40 54-66 84-66s70 26 84 66" />
-        </svg>
+        <img src="images/profile.jpg" alt="Profile Picture" class="profile-pic">
+
       </div>
     </section>
 
@@ -160,16 +171,19 @@
       <div class="grid">
         <!-- Project Card 1 -->
         <article class="card">
-          <div class="thumb" aria-hidden>
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="14" rx="2" ry="2" stroke="currentColor" fill="none"/><path d="M3 19h18" stroke="currentColor"/></svg>
+          <div class="thumb" >
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="14" rx="2" ry="3" stroke="currentColor" fill="none"/><path d="M3 19h18" stroke="currentColor"/></svg>
           </div>
           <div class="card-content">
-            <h3>Project Name One</h3>
-            <p>A one-sentence description focusing on the problem, your solution, and measurable results.</p>
+            <h3>Grippy Kasparov</h3>
+            <p> 
+            Utilizing novel suction cup gripper with haptic feedback search on a UR-10 robot arm to play chess.
+            </p>
             <div class="tags">
-              <span class="tag">HTML</span>
-              <span class="tag">CSS</span>
-              <span class="tag">JavaScript</span>
+              <span class="tag">Python</span>
+              <span class="tag">ROS</span>
+              <span class="tag">C++</span>
+              <span class="tag">Transofrations</span>
             </div>
             <p><a href="#" target="_blank" rel="noopener">Live demo</a> · <a href="#" target="_blank" rel="noopener">Source</a></p>
           </div>
