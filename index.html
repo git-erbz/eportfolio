@@ -1,10 +1,299 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My First Website</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name — Portfolio</title>
+  <meta name="description" content="Personal portfolio of Your Name: projects, experience, and contact." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0b0c10;
+      --panel: #11131a;
+      --text: #e6e6e6;
+      --muted: #a6a6a6;
+      --accent: #7c5cff;
+      --accent-2: #00e5a8;
+      --ring: color-mix(in hsl, var(--accent) 60%, white 40%);
+      --card: #151826;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg: #f8fafc;
+        --panel: #ffffff;
+        --text: #0f172a;
+        --muted: #475569;
+        --accent: #6d28d9;
+        --accent-2: #0ea5e9;
+        --card: #ffffff;
+        --shadow: 0 8px 24px rgba(2,8,23,.08);
+      }
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 100% -10%, color-mix(in hsl, var(--accent) 12%, transparent), transparent),
+                  radial-gradient(1200px 800px at -10% 100%, color-mix(in hsl, var(--accent-2) 12%, transparent), transparent),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* Header/Nav */
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:saturate(120%) blur(8px);
+      background: color-mix(in hsl, var(--bg) 85%, transparent);
+      border-bottom: 1px solid color-mix(in hsl, var(--muted) 20%, transparent);
+    }
+    .nav{
+      max-width: 1100px; margin: 0 auto; padding: .75rem 1rem;
+      display:flex; align-items:center; gap:1rem; justify-content:space-between;
+    }
+    .brand{display:flex; align-items:center; gap:.6rem; font-weight:800; letter-spacing:.3px}
+    .badge{display:inline-flex; align-items:center; gap:.35rem; font-size:.8rem; padding:.25rem .5rem; border:1px solid color-mix(in hsl, var(--muted) 30%, transparent); border-radius:9999px}
+    .badge svg{width:14px;height:14px}
+    nav ul{display:flex; list-style:none; gap:1rem; margin:0; padding:0}
+    nav a{font-weight:600}
+
+    /* Hero */
+    .hero{max-width:1100px; margin: 2.5rem auto; padding: 0 1rem; display:grid; grid-template-columns: 1.3fr .7fr; gap:2rem; align-items:center}
+    .hero h1{font-size:clamp(2rem, 4vw, 3rem); line-height:1.15; margin:0 0 .5rem}
+    .hero p{font-size:1.05rem; color:var(--muted); margin:0 0 1.25rem}
+    .cta{display:flex; gap:.75rem; flex-wrap:wrap}
+    .btn{display:inline-flex; align-items:center; gap:.5rem; padding:.7rem 1rem; border-radius:14px; border:1px solid color-mix(in hsl, var(--accent) 35%, transparent); background:linear-gradient(180deg, color-mix(in hsl, var(--panel) 85%, white 15%), var(--panel)); color:var(--text); box-shadow: var(--shadow); font-weight:700}
+    .btn.secondary{background:transparent; border-color: color-mix(in hsl, var(--muted) 40%, transparent); box-shadow:none}
+    .portrait{aspect-ratio:1/1; border-radius:24px; background:linear-gradient(180deg, color-mix(in hsl, var(--accent) 15%, var(--card)), var(--card)); border:1px solid color-mix(in hsl, var(--muted) 20%, transparent); display:grid; place-items:center; box-shadow: var(--shadow)}
+    .portrait svg{width:48%; height:48%; opacity:.7}
+
+    /* Sections */
+    section{max-width:1100px; margin: 3rem auto; padding: 0 1rem}
+    .section-head{display:flex; align-items:end; justify-content:space-between; margin-bottom:1rem}
+    .section-head h2{margin:0; font-size:clamp(1.4rem,2.4vw,1.8rem)}
+    .section-head p{margin:0; color:var(--muted)}
+
+    /* Projects Grid */
+    .grid{display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:1rem}
+    @media (max-width: 980px){ .hero{grid-template-columns:1fr} .grid{grid-template-columns: repeat(2, minmax(0,1fr));} }
+    @media (max-width: 640px){ .grid{grid-template-columns: 1fr;} }
+
+    .card{background:var(--card); border:1px solid color-mix(in hsl, var(--muted) 18%, transparent); border-radius:20px; overflow:hidden; box-shadow: var(--shadow); display:flex; flex-direction:column}
+    .thumb{aspect-ratio: 16/9; background:linear-gradient(180deg, color-mix(in hsl, var(--accent) 25%, var(--card)), var(--card)); display:grid; place-items:center}
+    .thumb svg{width:25%; height:25%; opacity:.5}
+    .card-content{padding:1rem}
+    .card h3{margin:.2rem 0 .4rem; font-size:1.1rem}
+    .tags{display:flex; gap:.4rem; flex-wrap:wrap; margin-top:.5rem}
+    .tag{font-size:.75rem; padding:.2rem .5rem; border-radius:9999px; border:1px solid color-mix(in hsl, var(--muted) 35%, transparent)}
+
+    /* Experience */
+    .timeline{display:grid; gap:.75rem}
+    .item{background:var(--card); border:1px solid color-mix(in hsl, var(--muted) 18%, transparent); border-radius:16px; padding:1rem; box-shadow: var(--shadow)}
+    .item h3{margin:.1rem 0}
+    .item .meta{color:var(--muted); font-size:.9rem}
+
+    /* Footer */
+    footer{margin-top:4rem; padding:2rem 1rem; background: color-mix(in hsl, var(--bg) 90%, transparent); border-top:1px solid color-mix(in hsl, var(--muted) 20%, transparent)}
+    .foot-inner{max-width:1100px; margin:0 auto; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem}
+    .socials{display:flex; gap:.75rem}
+    .social{display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; border-radius:10px; border:1px solid color-mix(in hsl, var(--muted) 38%, transparent)}
+
+    /* Utilities */
+    .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
+  </style>
 </head>
 <body>
-  <h1>Hello, World!</h1>
-  <p>This is my first website hosted on GitHub Pages.</p>
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <span aria-hidden>
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.77 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z" stroke="currentColor"/></svg>
+        </span>
+        <span>Your Name</span>
+        <span class="badge" title="Actively seeking opportunities">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="currentColor"/><path d="M7 12l3 3 7-7" stroke="currentColor" stroke-width="2"/></svg>
+          <span>Open to work</span>
+        </span>
+      </div>
+      <nav aria-label="Main">
+        <ul>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div>
+        <h1>Hi, I'm <span style="color:var(--accent)">Your Name</span> — a <span style="color:var(--accent-2)">Your Role</span> who builds clean, delightful experiences.</h1>
+        <p>Short 1–2 line elevator pitch. Mention your focus (e.g., robotics, web dev, data viz), your impact, or what you’re seeking.</p>
+        <div class="cta">
+          <a class="btn" href="#projects">View Projects</a>
+          <a class="btn secondary" href="#contact">Contact Me</a>
+          <a class="btn secondary" href="resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+        </div>
+      </div>
+      <div class="portrait" aria-hidden>
+        <!-- Simple placeholder avatar -->
+        <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="10">
+          <circle cx="128" cy="96" r="42" />
+          <path d="M44 228c14-40 54-66 84-66s70 26 84 66" />
+        </svg>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-head">
+        <h2>Featured Projects</h2>
+        <p>Selected work showcasing skills and impact.</p>
+      </div>
+      <div class="grid">
+        <!-- Project Card 1 -->
+        <article class="card">
+          <div class="thumb" aria-hidden>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="14" rx="2" ry="2" stroke="currentColor" fill="none"/><path d="M3 19h18" stroke="currentColor"/></svg>
+          </div>
+          <div class="card-content">
+            <h3>Project Name One</h3>
+            <p>A one-sentence description focusing on the problem, your solution, and measurable results.</p>
+            <div class="tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+            </div>
+            <p><a href="#" target="_blank" rel="noopener">Live demo</a> · <a href="#" target="_blank" rel="noopener">Source</a></p>
+          </div>
+        </article>
+        <!-- Project Card 2 -->
+        <article class="card">
+          <div class="thumb" aria-hidden>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h16v10H4z" stroke="currentColor" fill="none"/><path d="M2 18h20" stroke="currentColor"/></svg>
+          </div>
+          <div class="card-content">
+            <h3>Project Name Two</h3>
+            <p>What did you build, why does it matter, and what tech or methods did you use?</p>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">Flask</span>
+              <span class="tag">SQLite</span>
+            </div>
+            <p><a href="#" target="_blank" rel="noopener">Case study</a></p>
+          </div>
+        </article>
+        <!-- Project Card 3 -->
+        <article class="card">
+          <div class="thumb" aria-hidden>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="currentColor" fill="none"/><path d="M8 12h8M12 8v8" stroke="currentColor"/></svg>
+          </div>
+          <div class="card-content">
+            <h3>Project Name Three</h3>
+            <p>Highlight a unique challenge you solved. Include numbers (e.g., 30% faster, 2x throughput).</p>
+            <div class="tags">
+              <span class="tag">ROS 2</span>
+              <span class="tag">C++</span>
+              <span class="tag">Robotics</span>
+            </div>
+            <p><a href="#" target="_blank" rel="noopener">Read more</a></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="section-head">
+        <h2>Experience</h2>
+        <p>Roles, internships, and key milestones.</p>
+      </div>
+      <div class="timeline">
+        <div class="item">
+          <h3>Job Title — Company</h3>
+          <div class="meta">Jan 2024 – Present · City, Country</div>
+          <p>Short bullet-style summary of impact: <strong>what</strong> you did, <strong>how</strong> you did it, and <strong>why</strong> it mattered. Include measurable outcomes.</p>
+        </div>
+        <div class="item">
+          <h3>Internship — Company</h3>
+          <div class="meta">Summer 2023 · City, Country</div>
+          <p>Example: Built a data pipeline that reduced processing time by 42% using Python and Airflow.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-head">
+        <h2>About</h2>
+        <p>Who you are and what you care about.</p>
+      </div>
+      <div class="item">
+        <p>Write a short paragraph (~4–6 sentences) about your background, interests, and what you’re looking for next. Mention tools, domains, or industries you enjoy. Keep it human, specific, and concise.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <p>Reach out for opportunities or collaborations.</p>
+      </div>
+      <div class="item">
+        <p>Email: <a href="mailto:you@example.com">you@example.com</a> · LinkedIn · GitHub</p>
+        <form id="contact-form" class="item" onsubmit="sendMail(event)">
+          <label class="sr-only" for="name">Name</label>
+          <input id="name" name="name" placeholder="Your name" required style="width:100%; padding:.8rem 1rem; border-radius:12px; border:1px solid color-mix(in hsl, var(--muted) 35%, transparent); background:var(--panel); color:var(--text); margin-bottom:.6rem"/>
+          <label class="sr-only" for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Your email" required style="width:100%; padding:.8rem 1rem; border-radius:12px; border:1px solid color-mix(in hsl, var(--muted) 35%, transparent); background:var(--panel); color:var(--text); margin-bottom:.6rem"/>
+          <label class="sr-only" for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Your message" required style="width:100%; padding:.8rem 1rem; border-radius:12px; border:1px solid color-mix(in hsl, var(--muted) 35%, transparent); background:var(--panel); color:var(--text); margin-bottom:.6rem"></textarea>
+          <button class="btn" type="submit">Send</button>
+          <p id="form-status" role="status" aria-live="polite" style="margin:.6rem 0 0; color:var(--muted)"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot-inner">
+      <small>© <span id="year"></span> Your Name. All rights reserved.</small>
+      <div class="socials" aria-label="Social links">
+        <a class="social" href="#" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 00-3.79 23.4c.6.1.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.1-.76.08-.74.08-.74 1.22.09 1.87 1.25 1.87 1.25 1.08 1.86 2.85 1.32 3.54 1 .11-.8.42-1.32.77-1.62-2.66-.3-5.47-1.33-5.47-5.92 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.17 0 0 1-.32 3.3 1.23a11.5 11.5 0 016 0c2.3-1.55 3.3-1.23 3.3-1.23.66 1.65.25 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.6-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.69.82.58A12 12 0 0012 .5z"/></svg>
+        </a>
+        <a class="social" href="#" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V24h-4V8.5zM8.5 8.5h3.8v2.1h.1c.53-1 1.84-2.1 3.8-2.1 4.06 0 4.8 2.67 4.8 6.14V24h-4v-6.8c0-1.62-.03-3.7-2.25-3.7-2.25 0-2.6 1.75-2.6 3.57V24h-4V8.5z"/></svg>
+        </a>
+        <a class="social" href="#" aria-label="Email">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Fake form handler (static sites can't send email without a service)
+    function sendMail(e){
+      e.preventDefault();
+      const status = document.getElementById('form-status');
+      status.textContent = 'Thanks! This demo form does not send emails. Connect a service (e.g., Formspree) to enable submissions.';
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        const target = document.querySelector(a.getAttribute('href'));
+        if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
+      });
+    });
+  </script>
 </body>
 </html>
