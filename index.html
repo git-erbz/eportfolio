@@ -46,9 +46,11 @@
     body{
       margin:0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
-      background: radial-gradient(1200px 800px at 100% -10%, color-mix(in hsl, var(--accent) 12%, transparent), transparent),
-                  radial-gradient(1200px 800px at -10% 100%, color-mix(in hsl, var(--accent-2) 12%, transparent), transparent),
+      background: radial-gradient(60vw 40vh at 100% -10%, color-mix(in hsl, var(--accent) 12%, transparent), transparent),
+                  radial-gradient(60vw 40vh at -10% 100%, color-mix(in hsl, var(--accent-2) 12%, transparent), transparent),
                   var(--bg);
+      background-attachment: fixed
+      ;
       color:var(--text);
       line-height:1.6;
     }
@@ -94,8 +96,14 @@
     @media (max-width: 640px){ .grid{grid-template-columns: 1fr;} }
 
     .card{background:var(--card); border:1px solid color-mix(in hsl, var(--muted) 18%, transparent); border-radius:20px; overflow:hidden; box-shadow: var(--shadow); display:flex; flex-direction:column}
-    .thumb{aspect-ratio: 16/9; background:linear-gradient(180deg, color-mix(in hsl, var(--accent) 25%, var(--card)), var(--card)); display:grid; place-items:center}
+    .thumb{width:100%; border-radius: 10px; overflow: hidden; background:linear-gradient(180deg, color-mix(in hsl, var(--accent) 25%, var(--card)), var(--card)); display:grid; place-items:center}
     .thumb svg{width:25%; height:25%; opacity:.5}
+    .thumb img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
     .card-content{padding:1rem}
     .card h3{margin:.2rem 0 .4rem; font-size:1.1rem}
     .tags{display:flex; gap:.4rem; flex-wrap:wrap; margin-top:.5rem}
@@ -148,12 +156,10 @@
           , a <span style="color:var(--accent-2)">Mechanical Engineer</span> 
            with an interest in exploring robotics and neurotech.</h1>
         <p></p>
-        <p>With aspirations to break into the robotics field with an emphasis on neurotechnology sector, I am egar to learn and contribute to projects that make a meaningful impact. 
-        <p>Currently, I am building my skills through hands-on projects and self-directed learning. I am looking for opportunitites where I can grow, collaborate, and apply my curiosity and problem-solving mindset.  </p>
+       
         <div class="cta">
-          <a class="btn" href="#projects">View Projects</a>
-          <a class="btn secondary" href="#contact">Contact Me</a>
-          <a class="btn secondary" href="resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+          <a class="btn" href="mailto:ericbmdz@gmail.com">Contact Me</a>
+          <a class="btn" href="images/Resume_EG_Bermudez.pdf" target="_blank" rel="noopener">Check Out My Resume!</a>
         </div>
       </div>
       <div>
@@ -163,16 +169,26 @@
       </div>
     </section>
 
+        <section id="about">
+      <div class="section-head">
+        <h2>About Me</h2>
+      </div>
+      <div class="item">
+        <p>With aspirations to break into the robotics field with an emphasis on neurotechnology sector, I am egar to learn and contribute to projects that make a meaningful impact. 
+        <p>Currently, I am building my skills through hands-on projects and self-directed learning. I am looking for opportunitites where I can grow, collaborate, and apply my curiosity and problem-solving mindset.  </p>
+      </div>
+    </section>
+
     <section id="projects">
       <div class="section-head">
         <h2>Featured Projects</h2>
-        <p>Selected work showcasing skills and impact.</p>
+        <p>Selected work showcasing skills and capabilities.</p>
       </div>
       <div class="grid">
         <!-- Project Card 1 -->
         <article class="card">
           <div class="thumb" >
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="14" rx="2" ry="3" stroke="currentColor" fill="none"/><path d="M3 19h18" stroke="currentColor"/></svg>
+            <img src = "images/Grippy/grippy_cover.jpg" alt="Grippy Kasparov Project Image" >
           </div>
           <div class="card-content">
             <h3>Grippy Kasparov</h3>
@@ -183,23 +199,24 @@
               <span class="tag">Python</span>
               <span class="tag">ROS</span>
               <span class="tag">C++</span>
-              <span class="tag">Transofrations</span>
+              <span class="tag">UR-10 Robot Arm</span>
             </div>
-            <p><a href="#" target="_blank" rel="noopener">Live demo</a> · <a href="#" target="_blank" rel="noopener">Source</a></p>
+            <p><a  href="images/Grippy/GrippyPage.html" target="_blank" rel="noopener">Project Page</a> 
           </div>
         </article>
         <!-- Project Card 2 -->
         <article class="card">
           <div class="thumb" aria-hidden>
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h16v10H4z" stroke="currentColor" fill="none"/><path d="M2 18h20" stroke="currentColor"/></svg>
-          </div>
+            <img src="images/Pendulum/pendulum.gif" alt="Inverted Pendulum Project Image">
           <div class="card-content">
-            <h3>Project Name Two</h3>
-            <p>What did you build, why does it matter, and what tech or methods did you use?</p>
+            <h3>Inverted Pendulum</h3>
+            <p>The implementation of control theory to maintain robust stability of an inverted pendulum.</p>
             <div class="tags">
-              <span class="tag">Python</span>
-              <span class="tag">Flask</span>
-              <span class="tag">SQLite</span>
+              <span class="tag">Control Theory</span>
+              <span class="tag">MatLab</span>
+              <span class="tag">Simulink</span>
+              <span class="tag">Electric Circuits</span>
+              <span class="tag">PID</span>
             </div>
             <p><a href="#" target="_blank" rel="noopener">Case study</a></p>
           </div>
@@ -223,67 +240,79 @@
       </div>
     </section>
 
+    <section id="Eduactioan">
+      <div class="section-head">
+        <h2>Education</h2>
+      </div>
+      <div class="timeline">
+        <div class="item">
+          <h3>Bachelor of Science, Mechanical Engineering</h3>
+          University California, Berkeley
+          <div class="meta">Aug 2022 – Dec 2024</div>
+        </div>
+        <div class="item">
+          <h3>Associate of Science, General Engineering</h3>
+          Ventura County Community College
+          <div class="meta">Aug 2018 - May 2022</div>
+  
+        </div>
+      </div>
+
     <section id="experience">
       <div class="section-head">
         <h2>Experience</h2>
         <p>Roles, internships, and key milestones.</p>
       </div>
+
       <div class="timeline">
+        
         <div class="item">
-          <h3>Job Title — Company</h3>
-          <div class="meta">Jan 2024 – Present · City, Country</div>
-          <p>Short bullet-style summary of impact: <strong>what</strong> you did, <strong>how</strong> you did it, and <strong>why</strong> it mattered. Include measurable outcomes.</p>
+          <h3>Mechanical Engineering Intern |  NAVFAC EXWC</h3>
+          <div class="meta">Summer 2022 · Port Hueneme,  CA</div>
+          <p>- Collaborated within a multidisciplinary team to explore the viability of employing
+            autonomous drones for crack detection and surveillance on maritime
+            infrastructures. </p> 
+          <p>- Conducted extensive research on the application of photogrammetry techniques
+            for the creation of 3D digital replicas of pier structures, enhancing accuracy
+            and efficiency in structural analysis.
+            </p>- Developed foundational expertise in photogrammetry techniques, specializing in
+            the creation of precise 3D digital replicas of physical structures, with a specific
+            emphasis on pier structures.
+          </p>
         </div>
+       
         <div class="item">
-          <h3>Internship — Company</h3>
-          <div class="meta">Summer 2023 · City, Country</div>
+          <h3>STEM Tutor |  Ventura Community College</h3>
+          <div class="meta">Jan 2020 - May 2022</div>
           <p>Example: Built a data pipeline that reduced processing time by 42% using Python and Airflow.</p>
+      </div>
+
+       <div class="item">
+          <h3> Operations and Installation Associate | Timeless Flooring Company</h3>
+          <div class="meta">Apr 2018 - Dec 2020  · Ventura, CA</div>
+          <p>- Installed various types of flooring in residential and commercial properties, ensuring
+              high-quality workmanship and customer satisfaction.</p>
+          <p>- Assisted in the management of inventory and logistics, contributing to efficient operations
+              and timely project completion.</p>
+          <p>- Developed strong problem-solving skills by addressing on-site challenges and providing
+              effective solutions to clients.</p>
         </div>
-      </div>
     </section>
 
-    <section id="about">
-      <div class="section-head">
-        <h2>About</h2>
-        <p>Who you are and what you care about.</p>
-      </div>
-      <div class="item">
-        <p>Write a short paragraph (~4–6 sentences) about your background, interests, and what you’re looking for next. Mention tools, domains, or industries you enjoy. Keep it human, specific, and concise.</p>
-      </div>
-    </section>
 
-    <section id="contact">
-      <div class="section-head">
-        <h2>Contact</h2>
-        <p>Reach out for opportunities or collaborations.</p>
-      </div>
-      <div class="item">
-        <p>Email: <a href="mailto:you@example.com">you@example.com</a> · LinkedIn · GitHub</p>
-        <form id="contact-form" class="item" onsubmit="sendMail(event)">
-          <label class="sr-only" for="name">Name</label>
-          <input id="name" name="name" placeholder="Eric Bermudez" required style="width:100%; padding:.8rem 1rem; border-radius:12px; border:1px solid color-mix(in hsl, var(--muted) 35%, transparent); background:var(--panel); color:var(--text); margin-bottom:.6rem"/>
-          <label class="sr-only" for="email">Email</label>
-          <input id="email" name="email" type="email" placeholder="Your email" required style="width:100%; padding:.8rem 1rem; border-radius:12px; border:1px solid color-mix(in hsl, var(--muted) 35%, transparent); background:var(--panel); color:var(--text); margin-bottom:.6rem"/>
-          <label class="sr-only" for="message">Message</label>
-          <textarea id="message" name="message" rows="5" placeholder="Your message" required style="width:100%; padding:.8rem 1rem; border-radius:12px; border:1px solid color-mix(in hsl, var(--muted) 35%, transparent); background:var(--panel); color:var(--text); margin-bottom:.6rem"></textarea>
-          <button class="btn" type="submit">Send</button>
-          <p id="form-status" role="status" aria-live="polite" style="margin:.6rem 0 0; color:var(--muted)"></p>
-        </form>
-      </div>
-    </section>
   </main>
 
   <footer>
     <div class="foot-inner">
       <small>© <span id="year"></span> Eric Bermudez. All rights reserved.</small>
       <div class="socials" aria-label="Social links">
-        <a class="social" href="#" aria-label="GitHub">
+        <a class="social" href="https://github.com/git-erbz" aria-label="GitHub">
           <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 00-3.79 23.4c.6.1.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.1-.76.08-.74.08-.74 1.22.09 1.87 1.25 1.87 1.25 1.08 1.86 2.85 1.32 3.54 1 .11-.8.42-1.32.77-1.62-2.66-.3-5.47-1.33-5.47-5.92 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.17 0 0 1-.32 3.3 1.23a11.5 11.5 0 016 0c2.3-1.55 3.3-1.23 3.3-1.23.66 1.65.25 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.6-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.69.82.58A12 12 0 0012 .5z"/></svg>
         </a>
-        <a class="social" href="#" aria-label="LinkedIn">
+        <a class="social" href="https://www.linkedin.com/in/ericber/" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V24h-4V8.5zM8.5 8.5h3.8v2.1h.1c.53-1 1.84-2.1 3.8-2.1 4.06 0 4.8 2.67 4.8 6.14V24h-4v-6.8c0-1.62-.03-3.7-2.25-3.7-2.25 0-2.6 1.75-2.6 3.57V24h-4V8.5z"/></svg>
         </a>
-        <a class="social" href="#" aria-label="Email">
+        <a class="social" href="mailto:ericbmdz@gmail.com" aria-label="Email">
           <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
         </a>
       </div>
